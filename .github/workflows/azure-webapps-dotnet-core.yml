@@ -49,28 +49,14 @@ jobs:
           key: ${{ runner.os }}-nuget-${{ hashFiles('**/packages.lock.json') }}
           restore-keys: |
             ${{ runner.os }}-nuget-
-      - name: Restore dependencies
-        run: dotnet restore
-      - name: Build
-        run: dotnet build --configuration Debug --no-restore
-  
-  test:
-    runs-on: ubuntu-latest
-    needs: build
 
-    steps:
-      - name: Test
-        run: dotnet test --no-build --verbosity normal
-
-  publish:
-    runs-on: ubuntu-latest
-    needs: test
-
-    steps:
       - name: Build with dotnet
         run: dotnet build --configuration Release
 
-      - name: dotnet publish
+      - name: Test with dotnet
+        run: dotnet test --no-build --verbosity normal
+
+      - name: Publish withh dotner
         run: dotnet publish -c Release -o ${{env.DOTNET_ROOT}}/myapp
 
       - name: Upload artifact for deployment job
