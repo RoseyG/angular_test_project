@@ -53,7 +53,10 @@ jobs:
       - name: Build with dotnet
         run: dotnet build --configuration Release
 
-      - name: dotnet publish
+      - name: Test with dotnet
+        run: dotnet test --no-build --verbosity normal
+
+      - name: Publish withh dotner
         run: dotnet publish -c Release -o ${{env.DOTNET_ROOT}}/myapp
 
       - name: Upload artifact for deployment job
