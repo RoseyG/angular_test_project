@@ -14,6 +14,10 @@ Use `dotnet build` to build the project.
 
 Use `dotnet run` to run the project.
 
+## Publish
+
+Use `dotnet publish` to publish the project.
+
 ## Further help
 
 Go to `README.md` under `./ClientApp` for clientside development
