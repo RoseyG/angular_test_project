@@ -1,0 +1,7 @@
+<h1>Simple Stories</h1>
+
+<p *ngIf="!pages"><em>Loading...</em></p>
+
+<div *ngFor="let page of pages">
+  <p>{{ page.pageText }} {{ page.pageNum }}</p>
+</div>
