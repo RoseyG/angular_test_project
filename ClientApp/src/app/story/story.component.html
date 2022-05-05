@@ -1,7 +1,8 @@
-<h1>Simple Stories</h1>
+<h1>My Story</h1>
 
 <p *ngIf="!scenes"><em>Loading...</em></p>
 
+<!-- sceneId temp value showed for testing -->
 <div *ngFor="let scene of scenes">
   <p>{{ scene.sceneText }} {{ scene.sceneId }}</p>
 </div>
