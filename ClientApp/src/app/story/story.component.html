@@ -1,7 +1,10 @@
-<h1>Simple Stories</h1>
+<h1>My Story</h1>
 
-<p *ngIf="!pages"><em>Loading...</em></p>
+<p *ngIf="!scenes"><em>Loading...</em></p>
 
-<div *ngFor="let page of pages">
-  <p>{{ page.pageText }} {{ page.pageNum }}</p>
+<!-- sceneId temp value showed for testing -->
+<div *ngFor="let scene of scenes">
+  <p>{{ scene.sceneText }} {{ scene.sceneId }}</p>
 </div>
+
+<button class="btn btn-primary" (click)="sceneGenerator()">Next</button>
