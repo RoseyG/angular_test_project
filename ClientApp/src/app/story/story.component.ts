@@ -6,16 +6,27 @@ import { HttpClient } from '@angular/common/http';
   templateUrl: './story.component.html',
 })
 export class StoryComponent {
-  public pages: StoryPage[] = [];
+  private http: HttpClient;
+  private baseUrl: string;
+  public scenes: Scene[] = [];
+
+  public currentScene = 0;
+
+  public sceneGenerator() {
+    this.currentScene++;
+    this.http.get<Scene>(this.baseUrl + 'scene').subscribe(result => {
+      this.scenes.push(result);
+    }, error => console.error(error)); 
+  }
 
   constructor(http: HttpClient, @Inject('BASE_URL') baseUrl: string) {
-    http.get<StoryPage[]>(baseUrl + 'storypage').subscribe(result => {
-      this.pages = result;
-    }, error => console.error(error)); 
+    this.http = http;
+    this.baseUrl = baseUrl;
+    this.sceneGenerator();
   }
 }
 
-interface StoryPage {
-  pageText: string;
-  pageNum: number;
+interface Scene {
+  sceneText: string;
+  sceneId: number;
 }
