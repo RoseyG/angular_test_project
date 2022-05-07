@@ -1,4 +1,4 @@
-namespace angular_test_project;
+// namespace angular_test_project;
 
 public class Scene
 {
