@@ -1,7 +1,8 @@
-// namespace angular_test_project;
-
-public class Scene
+namespace angular_test_project.Models
 {
-    public int sceneId { get; set; }
-    public string? sceneText { get; set; }
+    public class Scene
+    {
+        public int? sceneId { get; set; }
+        public string? sceneText { get; set; }
+    }
 }
